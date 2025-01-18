@@ -1,0 +1,61 @@
+---
+permalink: recover/recovery-deployment.html 
+sidebar: sidebar 
+keywords:  
+summary: Se você perder suas ferramentas do ONTAP para a configuração do VMware vSphere, mas tiver seu ONTAP funcionando, poderá recuperar as ferramentas do ONTAP para a configuração do VMware vSphere usando o ONTAP. Quando você perder a configuração, desça a configuração graciosamente. 
+---
+= Recupere suas ferramentas do ONTAP para a configuração do VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você perder suas ferramentas do ONTAP para a configuração do VMware vSphere, poderá recuperar as ferramentas do ONTAP para a configuração do VMware vSphere usando os dados disponíveis nos dados de volume do ONTAP. Quando você perder a configuração, desça a configuração graciosamente.
+
+
+NOTE: Você não pode recuperar suas ferramentas do ONTAP para a configuração do VMware vSphere se houver problemas com o vCenter Server ou o software de gerenciamento de dados do ONTAP.
+
+*Passos*
+
+. Faça login no servidor vSphere.
+. Navegue até o pool de recursos que você criou ou para o cluster de nós ou para o host onde você deseja implantar o OVA.
+. Clique com o botão direito do rato no local pretendido e selecione *Deploy OVF template*.
+. Selecione o arquivo OVA através da URL do arquivo _.ova_ ou navegue até a pasta onde o arquivo _.ova_ é salvo e clique em *Next*.
++
+
+NOTE: Você deve usar a mesma compilação OVA que você usou para instalar a configuração de recuperação.
+
+. Selecione um nome e uma pasta para a máquina virtual e selecione *Next*.
+. Selecione o host e selecione *Next*.
+. Revise o resumo do modelo e selecione *Next*.
+. Leia e aceite o contrato de licença e selecione *Next*.
+. Na janela *Configuration*, selecione *Recovery* opção.
+. Na janela *Selecionar armazenamento*, selecione o armazenamento para as configurações e arquivos de disco.
+. Na janela *Selecionar redes*, selecione uma rede de destino para cada rede de origem.
++
+
+NOTE: Você precisa manter o endereço IP do balanceador de carga e o endereço IP do Kubernetes API Server. Você pode alterar o endereço IP do nó ou pode manter o mesmo endereço IP.
+
+. Na janela *Personalizar modelo*, insira os detalhes necessários e clique em *Avançar*
++
+
+NOTE: Quando o escopo da SVM estiver ativado, você já deverá ter o suporte à SVM com endereço IP de gerenciamento.
+
+. Revise os detalhes na janela *Pronto para concluir*, selecione *concluir*.
++
+À medida que a tarefa de implantação é criada, o progresso é mostrado na barra de tarefas do vSphere.
+
+. Ligue a VM após a conclusão da tarefa.
++
+A instalação começa. Você pode acompanhar o progresso da instalação no console da Web da VM. Como parte da instalação, as configurações dos nós são validadas. As entradas fornecidas sob diferentes seções sob o modelo Personalizar no formulário OVF são validadas. Em caso de discrepâncias, uma caixa de diálogo solicita que você tome medidas corretivas.
+
+. Faça as alterações necessárias no prompt de diálogo. Use o botão Tab para navegar pelo painel e selecione *OK*.
++
+Os valores fornecidos são validados novamente. As ferramentas do ONTAP para VMware vSphere permitem três tentativas de corrigir quaisquer valores inválidos. Se você não conseguir corrigir problemas após três tentativas, a instalação do produto será interrompida e você será aconselhado a tentar a instalação em uma nova VM.
+
+
+
+Após a instalação bem-sucedida, o console da Web mostra o estado das ferramentas do ONTAP para o VMware vSphere.
+
+Após a instalação bem-sucedida, você deve editar manualmente os requisitos de hardware de acordo com as diretrizes na link:../deploy/prerequisites.html["Pré-requisitos para implantar ferramentas do ONTAP para VMware vSphere"] página.

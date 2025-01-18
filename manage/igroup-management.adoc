@@ -1,0 +1,28 @@
+---
+permalink: manage/igroup-management.html 
+sidebar: sidebar 
+keywords:  
+summary: No ONTAP, as políticas de exportação são usadas para fornecer acesso ao caminho de dados de volume aos hosts e os grupos de dados são usados para fornecer acesso ao caminho de dados do LUN aos hosts ESXi. 
+---
+= Gerencie grupos e políticas de exportação
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+No ONTAP, as políticas de exportação são usadas para fornecer acesso ao caminho de dados de volume aos hosts e os grupos de iniciadores (grupos de iniciadores) são usados para fornecer acesso ao caminho de dados do número de unidade lógica (LUN) aos hosts ESXi. As ferramentas do ONTAP para o VMware vSphere tornam a criação do igroup fácil e intuitiva e fornecem fluxos de trabalho avançados de ponta a ponta. Para garantir a consistência, a criação direta do iGroup em plataformas de storage não é suportada.
+
+Quando armazenamentos de dados de volume virtual são criados ou montados em hosts no vCenter Server, os hosts precisam ter acesso a volumes (NFS) ou LUNs (iSCSI), dependendo do tipo de protocolo do datastore.
+
+A política de exportação é dinâmica e a nova política de exportação é criada com o formato de nomenclatura do Trident-uuid. No Gerenciador do sistema ONTAP, vá para *armazenamento* > *VMs de armazenamento* > *[nome da VM de armazenamento]* > *Configurações* > *políticas de exportação* para ver a política de exportação.
+
+Os grupos e as políticas de exportação nas ferramentas do ONTAP para VMware vSphere são gerenciados de forma eficiente e oferecem os seguintes benefícios:
+
+* Suporta políticas de exportação e grupos migrados.
+* Nenhuma interrupção das operações de entrada e saída da máquina virtual.
+* Suporta montagem em hosts adicionais sem intervenção manual.
+* Minimiza a necessidade de gerenciar o número de grupos e políticas de exportação.
+* Um coletor de lixo exclui automaticamente todos os grupos gerenciados não utilizados e políticas de exportação periodicamente.
+* Se um datastore for provisionado no nível do cluster do host, o igrop será criado com todos os iniciadores de host no cluster do host que são adicionados ao igrop.
+

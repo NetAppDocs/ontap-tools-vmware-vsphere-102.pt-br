@@ -1,0 +1,24 @@
+---
+permalink: concepts/privileges-required.html 
+sidebar: sidebar 
+keywords:  
+summary: Diferentes ferramentas do ONTAP para tarefas do VMware vSphere exigem combinações diferentes de Privileges específicas para as ferramentas do ONTAP para VMware vSphere e vCenter Server Privileges nativo. 
+---
+= O Privileges é necessário para as ferramentas do ONTAP para tarefas do VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Diferentes ferramentas do ONTAP para tarefas do VMware vSphere exigem combinações diferentes de Privileges específicas para as ferramentas do ONTAP para VMware vSphere e vCenter Server Privileges nativo.
+
+Para acessar as ferramentas do ONTAP para a GUI do VMware vSphere, você deve ter o privilégio de visualização específico das ferramentas do ONTAP em nível de produto atribuído no nível correto do objeto vSphere. Se você fizer login sem esse privilégio, as ferramentas do ONTAP para VMware vSphere exibirão uma mensagem de erro ao clicar no ícone NetApp e impedir que você acesse as ferramentas do ONTAP.
+
+No privilégio *Exibir*, você pode acessar as ferramentas do ONTAP para VMware vSphere. Esse privilégio não permite que você execute tarefas nas ferramentas do ONTAP para VMware vSphere. Para executar quaisquer ferramentas do ONTAP para tarefas do VMware vSphere, você deve ter o vCenter Server Privileges nativo e específico de ferramentas do ONTAP correto para essas tarefas.
+
+O nível de atribuição determina quais partes da IU você pode ver. A atribuição do privilégio Exibir ao objeto raiz (pasta) permite que você entre nas ferramentas do ONTAP para VMware vSphere clicando no ícone NetApp.
+
+Você pode atribuir o privilégio Exibir a outro nível de objeto vSphere; no entanto, isso limita as ferramentas do ONTAP para menus do VMware vSphere que você pode ver e usar.
+
+O objeto raiz é o local recomendado para atribuir qualquer permissão que contenha o privilégio Exibir.

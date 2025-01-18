@@ -1,0 +1,26 @@
+---
+settings:
+  name: ONTAP tools for VMware vSphere 10.2
+  downlevel: true
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: pt-br,us-en,de-de,es-es,fr-fr,it-it,ja-jp,ko-kr,zh-cn,zh-tw
+sidebar:
+  entries:
+  - title: Ferramentas do ONTAP para documentos do VMware vSphere 10,2
+    url: "/index.html"
+  - section: release-notes
+  - section: concepts
+  - section: deploy
+  - section: configure
+  - section: protect
+  - section: manage
+  - section: upgrade
+  - section: recover
+  - section: migrate
+  - section: automation
+  - title: Avisos legais
+    url: "/legal-notices.html"

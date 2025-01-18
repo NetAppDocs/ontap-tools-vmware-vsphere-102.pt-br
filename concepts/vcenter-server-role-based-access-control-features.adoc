@@ -1,0 +1,89 @@
+---
+permalink: concepts/vcenter-server-role-based-access-control-features.html 
+sidebar: sidebar 
+keywords:  
+summary: 'O vCenter Server fornece controle de acesso baseado em função (RBAC) que permite controlar o acesso a objetos vSphere.' 
+---
+= Visão geral do controle de acesso baseado em funções nas ferramentas do ONTAP para VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O vCenter Server fornece controle de acesso baseado em função (RBAC) que permite controlar o acesso a objetos vSphere. O vCenter Server fornece serviços de autenticação e autorização centralizados em vários níveis diferentes em seu inventário, usando direitos de usuário e grupo com funções e Privileges. O vCenter Server possui cinco componentes principais para gerenciar o RBAC:
+
+|===
+
+
+| Componentes | Descrição 
+
+
+| Privileges | Um privilégio habilita ou nega o acesso para executar ações no vSphere. 
+
+
+| Funções | Uma função contém um ou mais Privileges do sistema onde cada privilégio define um direito administrativo a um determinado objeto ou tipo de objeto no sistema. Ao atribuir uma função a um usuário, o usuário herda os recursos do Privileges definidos nessa função. 
+
+
+| Usuários e grupos | Usuários e grupos são usados em permissões para atribuir funções do ative Directory (AD). O vCenter Server tem seus próprios usuários e grupos locais que você pode usar. 
+
+
+| Permissões | As permissões permitem que você atribua o Privileges a usuários ou grupos para executar determinadas ações e fazer alterações em objetos dentro do vCenter Server. As permissões do vCenter Server afetam apenas os usuários que fazem login no vCenter Server em vez de usuários que fazem login em um host ESXi diretamente. 
+
+
+| Objeto | Uma entidade na qual as ações são executadas. Os objetos do VMware vCenter são data centers, pastas, pools de recursos, clusters, hosts e VMs 
+|===
+Para concluir uma tarefa com êxito, você deve ter as funções RBAC apropriadas do vCenter Server. Durante uma tarefa, as ferramentas do ONTAP para VMware vSphere verificam as funções do vCenter Server de um usuário antes de verificar o ONTAP Privileges do usuário.
+
+
+NOTE: As funções do vCenter Server se aplicam às ferramentas do ONTAP para usuários do VMware vSphere vCenter, não aos administradores. Por padrão, os administradores têm acesso total ao produto e não exigem funções atribuídas a eles.
+
+Os usuários e grupos obtêm acesso a uma função fazendo parte de uma função do vCenter Server.
+
+
+
+== Pontos-chave sobre a atribuição e modificação de funções para o vCenter Server
+
+Você só precisa configurar as funções do vCenter Server se quiser limitar o acesso a objetos e tarefas do vSphere. Caso contrário, você pode fazer login como administrador. Esse login permite que você acesse automaticamente todos os objetos do vSphere.
+
+A atribuição de uma função determina as ferramentas do ONTAP para tarefas do VMware vSphere que um usuário pode executar. Você pode modificar uma função a qualquer momento. Se você alterar o Privileges em uma função, o usuário associado a essa função deve fazer logout e fazer login novamente para ativar a função atualizada.
+
+
+
+== Funções padrão empacotadas com as ferramentas do ONTAP para VMware vSphere
+
+Para simplificar o trabalho com o vCenter Server Privileges e o RBAC, as ferramentas do ONTAP para VMware vSphere fornecem ferramentas ONTAP padrão para funções do VMware vSphere que permitem que você execute as principais ferramentas do ONTAP para tarefas do VMware vSphere. Há também uma função somente leitura que permite visualizar as informações, mas não executar nenhuma tarefa.
+
+Você pode visualizar as ferramentas do ONTAP para as funções padrão do VMware vSphere clicando em *Roles* na página inicial do vSphere Client. As funções que as ferramentas do ONTAP para VMware vSphere fornecem permitem que você execute as seguintes tarefas:
+
+|===
+
+
+| *Função* | *Descrição* 
+
+
+| Ferramentas do NetApp ONTAP para o administrador do VMware vSphere | Fornece todas as Privileges nativas específicas das ferramentas do vCenter Server Privileges e do ONTAP necessárias para executar algumas das ferramentas do ONTAP para tarefas do VMware vSphere. 
+
+
+| Ferramentas do NetApp ONTAP para VMware vSphere somente leitura | Fornece acesso somente leitura às ferramentas do ONTAP. Esses usuários não podem executar nenhuma ferramenta do ONTAP para ações do VMware vSphere controladas por acesso. 
+
+
+| Ferramentas do NetApp ONTAP para o provisionamento do VMware vSphere  a| 
+Fornece algumas das Privileges nativas específicas das ferramentas do vCenter Server Privileges e do ONTAP necessárias para provisionar o storage. Você pode executar as seguintes tarefas:
+
+* Crie novos datastores
+* Gerenciar armazenamentos de dados
+
+
+|===
+A função de administrador do Gerenciador de ferramentas do ONTAP não está registrada no vCenter Server. Essa função é específica do Gerenciador de ferramentas do ONTAP.
+
+Se a sua empresa exigir que você implemente funções mais restritivas do que as ferramentas padrão do ONTAP para as funções do VMware vSphere, você poderá usar as ferramentas do ONTAP para as funções do VMware vSphere para criar novas funções.
+
+Nesse caso, você clonaria as ferramentas do ONTAP necessárias para as funções do VMware vSphere e editaria a função clonada para que ela tenha apenas o Privileges de que seu usuário precisa.
+
+
+
+== Permissões para backends de armazenamento do ONTAP e objetos vSphere
+
+Se a permissão do vCenter Server for suficiente, as ferramentas do ONTAP para VMware vSphere verificarão o ONTAP RBAC Privileges (sua função ONTAP) associados às credenciais de back-ends de storage (o nome de usuário e a senha) para determinar se você tem Privileges suficientes para executar as operações de storage exigidas por essas ferramentas do ONTAP para a tarefa do VMware vSphere nesse back-end de storage. Se você tiver o ONTAP Privileges correto, poderá acessar os backends de armazenamento e executar as ferramentas do ONTAP para as tarefas do VMware vSphere. As funções do ONTAP determinam as ferramentas do ONTAP para tarefas do VMware vSphere que podem ser executadas no back-end de storage.

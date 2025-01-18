@@ -1,0 +1,163 @@
+---
+permalink: deploy/prerequisites.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: Antes de implantar as ferramentas do ONTAP para o VMware vSphere, você deve estar familiarizado com os requisitos de espaço para o pacote de implantação e alguns requisitos básicos do sistema de host. 
+---
+= Pré-requisitos para ferramentas do ONTAP para implantação do VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de implantar as ferramentas do ONTAP para o VMware vSphere, você deve estar familiarizado com os requisitos de espaço para o pacote de implantação e alguns requisitos básicos do sistema de host.
+
+Você pode usar as ferramentas do ONTAP para VMware vSphere com o VMware vCenter Server Virtual Appliance (vCSA). Você deve implantar as ferramentas do ONTAP para o VMware vSphere em um cliente vSphere compatível que inclua o sistema ESXi.
+
+
+
+== Requisitos do sistema
+
+* * Requisitos de espaço do pacote de instalação por nó*
++
+** 10 GB para instalações com provisionamento reduzido
+** 248 GB para instalações com provisionamento espesso
+
+
+* *Requisitos de dimensionamento do sistema anfitrião por nó* a memória recomendada de acordo com o tamanho da implementação e por nó é como mostrado na tabela abaixo:
+
+
+|===
+
+
+| *Tipo de implantação* | *CPUs* | *Memória (GB)* 
+
+
+| Pequeno (S) | 8 | 16 
+
+
+| Médio (M) | 12 | 24 
+
+
+| Grande (L) | 16 | 32 
+|===
+Consulte a seção _limites de configuração para implantar as ferramentas do ONTAP para VMware vSphere_ abaixo para obter mais detalhes.
+
+
+
+== Requisitos mínimos de storage e aplicativos
+
+|===
+| Storage, host e aplicações | Requisitos mínimos de versão 
+
+
+| ONTAP | Versão de patch mais recente do ONTAP 9.12,1, 9.13.1, 9.14.1 e 9.15.1. 
+
+
+| Hosts ESXi | ESXi 7.0.3 
+
+
+| Servidor vCenter | VCenter 7.0U3 
+
+
+| Fornecedor VASA | 3,0 
+
+
+| Aplicação OVA | 10,2 
+|===
+A ferramenta de Matriz de interoperabilidade (IMT) contém as informações mais recentes sobre as versões suportadas do ONTAP, vCenter Server, hosts ESXi e aplicativos de plug-in.
+
+https://imt.netapp.com/matrix/imt.jsp?components=105475;&solution=1777&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade"^]
+
+
+
+== Limites de configuração para implantar as ferramentas do ONTAP para o VMware vSphere
+
+Você pode usar a tabela a seguir como um guia para configurar as ferramentas do ONTAP para o VMware vSphere.
+
+|===
+
+
+| *Implantação* | *Tipo* | *Número de vVols* | *Número de hosts* | *Tipo de protocolo* 
+
+
+| Implantação fácil | Pequeno (S) | 12K | 32 | NFS, iSCSI 
+
+
+| Implantação fácil | Médio (M) | 24K | 64 | NFS, iSCSI 
+
+
+| Alta disponibilidade | Pequeno (S) | 24K | 64 | NFS, iSCSI 
+
+
+| Alta disponibilidade | Médio (M) | 50k | 128 | NFS, iSCSI 
+
+
+| Alta disponibilidade | Grande (L) | 100k | 256 [NOTA] o número de hosts na tabela mostra o número total de hosts de vários vCenters. | NFS, iSCSI 
+|===
+Para obter detalhes sobre os requisitos de dimensionamento do sistema host por nó, link:../deploy/prerequisites.html["Pré-requisitos para implantar ferramentas do ONTAP para VMware vSphere"]consulte .
+
+
+
+== Ferramentas do ONTAP para VMware vSphere - adaptador de replicação de armazenamento (SRA)
+
+A tabela a seguir mostra os números suportados por instância do VMware Live Site Recovery usando as ferramentas do ONTAP para VMware vSphere.
+
+|===
+| * Tamanho da implantação do vCenter* | *Pequeno* | *Médio* 
+
+
+| Número total de máquinas virtuais configuradas para proteção usando replicação baseada em array | 2000 | 5000 
+
+
+| Número total de grupos de proteção de replicação baseados em array | 250 | 250 
+
+
+| Número total de grupos de proteção por plano de recuperação | 50 | 50 
+
+
+| Número de datastores replicados | 255 | 255 
+
+
+| Número de VMs | 4000 | 7000 
+|===
+A tabela a seguir mostra o número de VMware Live Site Recovery e as ferramentas ONTAP correspondentes para o tamanho de implantação do VMware vSphere.
+
+|===
+
+
+| *Número de instâncias de recuperação do VMware Live Site* | *Tamanho de implantação de ferramentas ONTAP* 
+
+
+| Até 4 | Pequeno 
+
+
+| 4 a 8 | Média 
+
+
+| Mais de 8 | Grande 
+|===
+Para obter mais informações, https://docs.vmware.com/en/VMware-Live-Recovery/services/vmware-live-site-recovery/GUID-3AD7D565-8A27-450C-8493-7B53F995BB14.html["Limites operacionais da recuperação do VMware Live Site"] consulte .
+
+
+
+== Verificações de pré-implantação
+
+Certifique-se de que os itens a seguir estão implementados antes de prosseguir com a implantação:
+
+* O ambiente do vCenter Server está configurado e configurado.
+* (Opcional) para usuário de automação - o NetApp forneceu que o arquivo JSON de coleções Postman é coletado.
+* As credenciais do vCenter Server pai para implantar o OVA estão em vigor.
++
+
+NOTE: A senha do vCenter Server pai não deve conter esses carateres especiais (
+
+* Você tem as credenciais de login para sua instância do vCenter Server à qual as ferramentas do ONTAP para VMware vSphere se conetarão ao pós-implantação, para Registro.
+* O cache do navegador é excluído.
+* Verifique se você tem três endereços IP gratuitos disponíveis para implantação sem HA: Um endereço IP gratuito para balanceador de carga e um endereço IP gratuito para o plano de controle do Kubernetes e um endereço IP para nó. Para a implantação de HA, juntamente com esses três endereços IP, você precisará de mais dois endereços IP para segundo e terceiro nós. Os nomes de host devem ser mapeados para os endereços IP gratuitos no DNS antes de atribuir para implantações de HA e não HA. Todos os cinco endereços IP na implantação HA e os três endereços IP na implantação não HA devem estar na mesma VLAN selecionada para implantação.
+
+
+* Certifique-se de que o nome do domínio no qual o certificado é emitido esteja mapeado para o endereço IP virtual em uma implantação multi-vCenter onde os certificados de CA personalizados são obrigatórios. _Nslookup_ verifica se o nome de domínio está sendo resolvido para o endereço IP pretendido. Os certificados devem ser criados com nome de domínio e endereço IP do endereço IP do balanceador de carga.
+* Antes de instalar as ferramentas do ONTAP para VMware vSphere 10,2 em configurações avançadas e de HA não-HA, consulte o artigo da KB: https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/pre-requisites_for_installing_OTV_10.1_and_10.2_in_NonHA_Advanced_and_HA["Pré-requisitos para configuração avançada e HA não-HA"]
+

@@ -1,0 +1,39 @@
+---
+permalink: manage/certificate-manage.html 
+sidebar: sidebar 
+keywords:  
+summary: Uma única instância das ferramentas do ONTAP para VMware vSphere pode gerenciar várias instâncias do vCenter Server. As ferramentas do ONTAP para o VMware vSphere são implantadas com um certificado autoassinado para o provedor VASA. Com isso, apenas uma instância do vCenter Server pode ser gerenciada para armazenamentos de dados vVols. 
+---
+= Gerenciar certificados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Uma única instância das ferramentas do ONTAP para VMware vSphere pode gerenciar várias instâncias do vCenter Server. As ferramentas do ONTAP para o VMware vSphere são implantadas com um certificado autoassinado para o provedor VASA. Com isso, apenas uma instância do vCenter Server pode ser gerenciada para armazenamentos de dados vVols. Ao gerenciar várias instâncias do vCenter Server e desejar habilitar o recurso vVols em várias instâncias do vCenter Server, você precisa alterar o certificado autoassinado para certificado CA personalizado usando a interface do Gerenciador de ferramentas do ONTAP. Você pode usar a mesma interface para renovar ou atualizar todos os certificados.
+
+
+NOTE: Um endereço IP do balanceador de carga diferente mapeado para domínios diferentes não é suportado quando você atualiza a assinatura automática para a CA personalizada.
+
+*Passos*
+
+. Inicie o Gerenciador de ferramentas do ONTAP a partir de um navegador da Web: `\https://loadBalanceIP:8443/virtualization/ui/`
+. Faça login com as ferramentas do ONTAP para as credenciais de administrador do VMware vSphere fornecidas durante a implantação.
+. Selecione a opção *certificados* > *Fornecedor VASA* > *renovar* para renovar os certificados.
++
+
+NOTE: O sistema estará offline até que o certificado seja renovado.
+
+. Para atualizar o certificado auto-assinado para certificado CA personalizado, selecione *certificados* > *provedor VASA* > *Upgrade para CA* opção.
++
+.. Na janela pop-up *Upgrade certificate to custom CA* (Atualizar certificado para CA* personalizado), carregue o certificado do servidor, a chave privada do certificado do servidor, o certificado da CA raiz e os arquivos de certificado intermediários. A dica da ferramenta fornece a descrição dos certificados.
+.. Introduza o nome de domínio para o qual gerou este certificado.
+.. Clique em *Upgrade*.
++
+
+NOTE: O sistema estará offline até que a atualização esteja concluída.
+
+
+
+

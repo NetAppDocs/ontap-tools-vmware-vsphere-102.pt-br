@@ -1,0 +1,42 @@
+---
+permalink: manage/delete-deployment.html 
+sidebar: sidebar 
+keywords: ONTAP tools,Storage Replication Adapter 
+summary: Depois de excluir as ferramentas do ONTAP para a implantação do VMware vSphere, você deve limpar o FlexVolumes criado durante a implantação. Se você usou um cluster ONTAP dedicado para implantações, deve limpar o FlexVolumes à medida que a implantação cria muitos FlexVolumes que não são utilizados, resultando em desempenho reduzido. 
+---
+= Limpe os volumes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de excluir as ferramentas do ONTAP para a implantação do VMware vSphere, você deve limpar o FlexVolumes criado durante a implantação. Se você usou um cluster ONTAP dedicado para implantações, deve limpar o FlexVolumes à medida que a implantação cria muitos FlexVolumes que não são utilizados, resultando em desempenho reduzido.
+
+Use as diretrizes a seguir para limpar a remoção do FlexVolumes pós-remoção de ferramentas do ONTAP para a implantação do VMware vSphere.
+
+.Passos
+. Na VM do nó principal das ferramentas do ONTAP para VMware vSphere, execute o seguinte comando para identificar o tipo de implantação.
++
+_cat /opt/NetApp/meta/ansible_vars.yaml | grep -i protocol_
+
++
+Se for uma implantação iSCSI, você também precisará excluir grupos.
+
+. Obtenha a lista de FlexVolumes criados no ONTAP durante a implantação usando o seguinte comando.
++
+_Kubectl descreva persistentvolumes | grep internalName | awk -F' ''print 2'_
+
+. Excluir VMs do vCenter Server, consulte https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-27E53D26-F13F-4F94-8866-9C6CFA40471C.html["Remova VMs ou modelos de VM do vCenter Server ou do datastore"]
+. Excluir volumes do gerenciador de sistema do ONTAP, https://docs.netapp.com/us-en/ontap/volumes/delete-flexvol-task.html["Eliminar um FlexVol volume"] consulte . Dê o nome exato do Flexvolume no comando cli para excluir o volume.
+. Em caso de implantação iSCSI, exclua os grupos SAN do ONTAP, https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html["Visualizar e gerenciar iniciadores e grupos SAN"] consulte .
++
+Na implantação do HA, quatro grupos são criados e na implantação não-HA dois grupos são criados. Execute o seguinte comando para encontrar o primeiro nome do grupo:
+
++
+_Kubectl -n Trident get tbc Trident-backend -o yaml| grep igroupName: | awk -F':' ''print 2'_
+
++
+Os outros nomes do grupo começam com o nome de host da VM.
+
+

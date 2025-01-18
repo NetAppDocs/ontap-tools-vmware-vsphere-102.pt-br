@@ -1,0 +1,39 @@
+---
+permalink: configure/dashboard-overview.html 
+sidebar: sidebar 
+keywords: user roles 
+summary: Quando você seleciona o ícone de plug-in das ferramentas do NetApp ONTAP para VMware vSphere na seção de atalhos no cliente vCenter, a interface do usuário navega para a página de visão geral. Essa página funciona como o painel que fornece o resumo das ferramentas do ONTAP para o plug-in do VMware vSphere. 
+---
+= Visão geral das ferramentas do NetApp ONTAP para o painel de plug-in do VMware vSphere
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você seleciona o ícone de plug-in das ferramentas do NetApp ONTAP para VMware vSphere na seção de atalhos no cliente vCenter, a interface do usuário navega para a página de visão geral. Essa página funciona como o painel que fornece o resumo das ferramentas do ONTAP para o plug-in do VMware vSphere.
+
+No caso da configuração Enhanced Linked Mode (ELM), o menu suspenso vCenter Server SELECT (seleção do vCenter Server) é exibido e você pode selecionar um vCenter Server desejado para ver os dados relevantes a ele. Esta lista suspensa está disponível para todas as outras visualizações de listagem do plugin. A seleção do vCenter Server feita em uma página persiste nas guias do plug-in. image:../media/remote-plugin-dashboard.png["Descrição geral do painel"]
+
+O painel de instrumentos tem vários cartões que mostram diferentes elementos do sistema. A tabela a seguir mostra as diferentes cartas e o que elas representam.
+
+|===
+
+
+| *Nome do cartão* | *Descrição* 
+
+
+| Estado | O cartão Status mostra o número de backends de armazenamento adicionados e o status geral de integridade dos backends de armazenamento e o status do provedor VASA de um vCenter. O status dos backends de armazenamento é exibido como "saudável" quando todo o status dos backends de armazenamento é normal. O status dos backends de armazenamento é "insalubre" se algum dos backends de armazenamento tiver um problema (status desconhecido/inalcançável/degradado). Quando você clica no status "não saudável", uma dica de ferramenta é aberta com o status dos backends de armazenamento. Você pode clicar em qualquer back-end de armazenamento para obter mais detalhes. O link de outros estados do provedor VASA (VP) mostra o estado atual do VP registrado no vCenter Server. 
+
+
+| Back-ends de armazenamento - capacidade | Este cartão mostra a capacidade agregada usada e disponível de todos os backends de armazenamento para a instância do vCenter Server selecionada. 
+
+
+| Máquinas virtuais | Esta placa mostra as 10 principais VMs classificadas por métrica de desempenho. Você pode clicar no cabeçalho para obter as 10 principais VMs para a métrica selecionada classificadas por ordem crescente ou decrescente. As alterações de classificação e filtragem feitas no cartão persistem até que você altere ou limpe o cache do navegador. 
+
+
+| Armazenamentos de dados | Este cartão mostra os 10 principais datastores classificados por uma métrica de desempenho. Você pode clicar no cabeçalho para obter os 10 principais datastores para a métrica selecionada classificados por ordem crescente ou decrescente. As alterações de classificação e filtragem feitas no cartão persistem até que você altere ou limpe o cache do navegador. Há uma lista suspensa tipo de datastore para selecionar o tipo de datastores - NFS, VMFS ou vVols. 
+
+
+| Placa de conformidade do host ESXi | Esta placa mostra o status geral de conformidade de todos os hosts ESXi (para o vCenter selecionado) com relação às configurações recomendadas do host NetApp por grupo/categoria de configurações. Você pode clicar no link aplicar configurações recomendadas para aplicar as configurações recomendadas. Você pode clicar em issues/unknown para ver a lista de hosts. 
+|===

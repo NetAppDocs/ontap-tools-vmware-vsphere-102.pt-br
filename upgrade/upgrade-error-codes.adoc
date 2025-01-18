@@ -1,0 +1,146 @@
+---
+permalink: upgrade/upgrade-error-codes.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: Esta página descreve os códigos de erro para a operação de atualização das ferramentas do ONTAP para o sistema VMware vSphere. 
+---
+= Atualizar códigos de erro
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode encontrar códigos de erro durante as ferramentas do ONTAP para a operação de atualização do VMware vSphere. Os códigos de erro têm cinco dígitos, onde os dois primeiros dígitos representam o script que encontrou o problema, e os últimos três dígitos representam o fluxo de trabalho específico dentro desse script.
+
+Todos os logs de erros são registrados no arquivo ansible-perl-errors.log para facilitar o rastreamento e a resolução de problemas. Esse arquivo de log contém o código de erro e a tarefa Ansible com falha.
+
+
+NOTE: Os códigos de erro fornecidos nesta página são apenas para referência. Entre em Contato com a equipe de suporte se o erro persistir ou se não houver nenhuma resolução mencionada.
+
+A tabela a seguir lista os códigos de erro e os nomes de arquivo correspondentes.
+
+|===
+
+
+| *Código de erro* | *Nome do script* 
+
+
+| 00 | firstboot-network-config.pl, modo de implantação 
+
+
+| 01 | firstboot-network-config.pl, atualização do modo 
+
+
+| 02 | firstboot-inputs-validation.pl 
+
+
+| 03 | firstboot-deploy-otv-ng.pl, implantar, ha 
+
+
+| 04 | firstboot-deploy-otv-ng.pl, implantação, não ha 
+
+
+| 05 | firstboot-deploy-otv-ng.pl, reinicie 
+
+
+| 06 | firstboot-deploy-otv-ng.pl, upgrade, ha 
+
+
+| 07 | firstboot-deploy-otv-ng.pl, upgrade, não ha 
+
+
+| 08 | firstboot-otv-recovery.pl 
+|===
+Os últimos três dígitos do código de erro indicam o erro de fluxo de trabalho específico dentro do script:
+
+|===
+
+
+| *Código de erro de atualização* | *Fluxo de trabalho* | *Resolução* 
+
+
+| 063 | A cópia de conteúdo para o volume de recuperação falhou | Executar recuperação baseada em snapshot. 
+
+
+| 068 | A reversão de pacotes Debian falhou | Executar recuperação baseada em snapshot. 
+
+
+| 069 | Falha ao restaurar ficheiros | Executar recuperação baseada em snapshot. 
+
+
+| 070 | Falha ao eliminar cópia de segurança | Executar recuperação baseada em snapshot. 
+
+
+| 071 | O cluster do Kubernetes não estava íntegro | Executar recuperação baseada em snapshot. 
+
+
+| 072 | O arquivo CR não existe no disco jail | Executar recuperação baseada em snapshot. 
+
+
+| 073 | A aplicação do CR falhou ao definir o sinalizador de reconciliar força como falso | Executar recuperação baseada em snapshot. 
+
+
+| 074 | A montagem ISO falhou | Tente novamente a atualização. 
+
+
+| 075 | As pré-verificações de atualização falharam | Tente novamente a atualização. 
+
+
+| 076 | A atualização do registo falhou | Executar recuperação baseada em snapshot. 
+
+
+| 077 | A reversão do Registro falhou | Executar recuperação baseada em snapshot. 
+
+
+| 078 | A atualização do operador falhou | Executar recuperação baseada em snapshot. 
+
+
+| 079 | A reversão do operador falhou | Executar recuperação baseada em snapshot. 
+
+
+| 080 | A atualização dos serviços falhou | Executar recuperação baseada em snapshot. 
+
+
+| 081 | Falha na reversão de serviços | Executar recuperação baseada em snapshot. 
+
+
+| 082 | Falha ao eliminar imagens antigas do contentor | Executar recuperação baseada em snapshot. 
+
+
+| 083 | A eliminação da cópia de segurança falhou | Executar recuperação baseada em snapshot. 
+
+
+| 084 | Falha ao alterar o JobManager de volta à produção | Executar recuperação baseada em snapshot. 
+
+
+| 085 | Falha ao criar segredos de certificado CA | Executar recuperação baseada em snapshot. 
+
+
+| 086 | falha ao criar segredos de certificado de servidor/chave privada | Executar recuperação baseada em snapshot. 
+
+
+| 087 | Falha! Para concluir as etapas de atualização do POST 10,0 a 10,1 | As etapas de pós-atualização falharam. 
+
+
+| 088 | A configuração da rotação de log para journald falhou | Tente novamente a atualização. 
+
+
+| 089 | A alteração da propriedade do registo de resumo, o ficheiro de configuração de rotação falhou | Tente novamente a atualização. 
+
+
+| 091 | A atualização iSCSI falhou | Tente novamente a atualização. 
+
+
+| 092 | A reversão iSCSI falhou | Tente novamente a atualização. 
+
+
+| 093 | a atualização do Trident falhou | Tente novamente a atualização. 
+
+
+| 094 | a reversão do Trident falhou | Tente novamente a atualização. 
+
+
+| 095 | Falha na Atualização Debian | Nenhuma recuperação para a atualização Debian. Os serviços são atualizados e novos pods serão executados 
+|===
+Saiba mais sobre https://kb.netapp.com/data-mgmt/OTV/VSC_Kbs/How_to_restore_ONTAP_tools_for_VMware_vSphere_if_upgrade_fails_from_version_10.0_to_10.1["Como restaurar as ferramentas do ONTAP para VMware vSphere se a atualização falhar da versão 10,0 para a 10,1"]
