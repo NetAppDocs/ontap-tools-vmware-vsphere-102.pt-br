@@ -19,24 +19,12 @@ Você pode definir os seguintes valores em um host ESXi:
 
 == Definições do adaptador HBA/CNA
 
-Define as definições de tempo limite de HBA recomendadas para sistemas de armazenamento NetApp.
+Define os seguintes parâmetros para valores padrão:
 
-* *Disk.QFullSampleSize*
-+
-Defina este valor como 32 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.
-
-* *Disk.QFullThreshold*
-+
-Defina este valor como 8 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.
-
-* *Tempos limite de Emulex FC HBA*
-+
-Use o valor padrão.
-
-* *Tempos limite de tempo do QLogic FC HBA*
-+
-Use o valor padrão.
-
+* Disk.QFullSampleSize
+* Disk.QFullThreshold
+* Tempos limite Emulex FC HBA
+* Tempos limite do QLogic FC HBA
 
 
 

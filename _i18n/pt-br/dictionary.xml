@@ -594,14 +594,6 @@
   <block id="a883deebdfbfeb611d06d3f55178ccbf" category="doc">Defina os valores do host ESXi</block>
   <block id="9232ab7e918fc93452c2dc7c8fab1b8c" category="paragraph">Você pode definir os seguintes valores em um host ESXi:</block>
   <block id="ab9d8dfb65807487a899df1683e128fa" category="section-title">Definições do adaptador HBA/CNA</block>
-  <block id="d3c41b5a4cf556f3a598cc1221e08ee4" category="paragraph">Define as definições de tempo limite de HBA recomendadas para sistemas de armazenamento NetApp.</block>
-  <block id="15ed0ba40712ee81b72a8792c890eedc" category="list-text">*Disk.QFullSampleSize*</block>
-  <block id="66ea40466e5ef8258f8b6db3cdc7106f" category="paragraph">Defina este valor como 32 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.</block>
-  <block id="39588925ce067cdd61e04bbd64e51dcb" category="list-text">*Disk.QFullThreshold*</block>
-  <block id="9bd553240078f69295a0b47ce73fd074" category="paragraph">Defina este valor como 8 para todas as configurações. Definir este valor ajuda a evitar erros de e/S.</block>
-  <block id="81ec4070dd281a6d1920f79a9ecb8f0d" category="list-text">*Tempos limite de Emulex FC HBA*</block>
-  <block id="b4dbfc2d52627e923cbb563a31ff756d" category="paragraph">Use o valor padrão.</block>
-  <block id="5ecf7b7910834f22ac8988030833dbcc" category="list-text">*Tempos limite de tempo do QLogic FC HBA*</block>
   <block id="c803cf4eb4cbf3a6b12b1e1cc3443970" category="section-title">Definições MPIO</block>
   <block id="ce2fddb4782cb083028eb028f1b74ba0" category="paragraph">Configurações MPIO definem caminhos preferidos para sistemas de armazenamento NetApp. As configurações do MPIO determinam quais dos caminhos disponíveis são otimizados (em vez de caminhos não otimizados que atravessam o cabo de interconexão) e definem o caminho preferido para um desses caminhos.</block>
   <block id="d16644a258624270fbc604b4a9c10811" category="paragraph">Em ambientes de alto desempenho, ou quando você estiver testando o desempenho com um único armazenamento de dados LUN, considere alterar a configuração de balanceamento de carga da política de seleção de caminho (PSP) de round-robin (VMW_PSP_RR) da configuração padrão de IOPS de 1000 para um valor de 1.</block>
@@ -1797,7 +1789,6 @@
   <block id="48bc2d028cb2a507ef974230ca3ba793" category="sidebar">Configure o diagnóstico remoto</block>
   <block id="eaf78ca462bf848b7c59c410077002b6" category="sidebar">Proteja seus datastores</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">Mais recursos</block>
-  <block id="c8af2a359991324c5027f67981fcf118" category="sidebar">Documentação das ferramentas do ONTAP para VMware vSphere 10,1</block>
   <block id="425e3f9f511fc3cc32fb57688da1ec81" category="sidebar">Documentação para versões anteriores das ferramentas do ONTAP para VMware vSphere 9</block>
   <block id="4c3c39a603eb21106d2df2836d4b456c" category="sidebar">Base de Conhecimento NetApp - ONTAP Tools</block>
   <block id="72393f9ef0b6b69526a30ac7ce5276bc" category="sidebar">Comunidade NetApp - Ferramentas ONTAP</block>
@@ -1837,4 +1828,9 @@
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Notas de versão</block>
   <block id="ed8359854c43609fca7bc8a46cca9eac" category="sidebar">Comparação de recursos das ferramentas ONTAP 9 e ONTAP 10</block>
   <block id="a2fa58344be7fbd9a2be0320a8df0f77" category="sidebar">Atualizar as ferramentas do ONTAP</block>
+  <block id="395ddb6ca1b9948e32145f8fa1a9201e" category="paragraph">Define os seguintes parâmetros para valores padrão:</block>
+  <block id="117704664d6cada78ac3107380f63d23" category="list-text">Disk.QFullSampleSize</block>
+  <block id="f66a3c183f0e736240b77f8b755c880e" category="list-text">Disk.QFullThreshold</block>
+  <block id="19c08de7404551288e1274186e039ef4" category="list-text">Tempos limite Emulex FC HBA</block>
+  <block id="d46cddda4da7ec11f17472d11df95b68" category="list-text">Tempos limite do QLogic FC HBA</block>
 </blocks>
