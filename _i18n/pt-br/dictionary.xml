@@ -342,7 +342,6 @@
   <block id="7f2d9eb042fad8493c138993f867cd80" category="paragraph">A lista é atualizada e você pode ver o back-end de armazenamento recém-adicionado na lista.</block>
   <block id="f6c30a782639c90ebe44f3f343922077" category="summary">As instâncias do vCenter Server são as plataformas de gerenciamento central que permitem controlar hosts, máquinas virtuais (VM) e backends de armazenamento.</block>
   <block id="6245e46af5a3bdaf57696763c4214c70" category="doc">Adicione instâncias do vCenter Server</block>
-  <block id="9a22df67797f0968951385551d26d202" category="paragraph">O vCenter Server fornece a plataforma de gerenciamento central que permite controlar hosts, máquinas virtuais (VMs) e backends de armazenamento.</block>
   <block id="aaf638e0edd71bac35fef1b1149f3843" category="paragraph">Você pode adicionar e gerenciar várias instâncias do vCenter Server com uma instância de ferramentas do ONTAP para VMware vSphere.</block>
   <block id="0336e0a2e9f5b95c0d4178d3186ecbf6" category="list-text">Selecione *vCenters* na barra lateral.</block>
   <block id="4287076fd3b7cc772889cb75d012c773" category="list-text">Selecione *Adicionar* a instâncias integradas do vCenter Server e forneça seu endereço IP/nome de host do vCenter, nome de usuário, senha e detalhes da porta.</block>
@@ -676,7 +675,6 @@
   <block id="02ecc951ba9c7de4ba8def4213f1982e" category="list-text">Para exibir os clusters de host protegidos, navegue até *Ferramentas do NetApp ONTAP* &gt; *proteção* &gt; *relacionamentos de cluster do host*.</block>
   <block id="88cea8a228e76d96b5b014b926e19795" category="summary">Você pode Registrar e cancelar o Registro do provedor VASA com uma instância do vCenter Server usando as ferramentas do ONTAP para a interface de plug-in remota do VMware vSphere.</block>
   <block id="062e7967273cea76dff9c3579a0c44db" category="doc">Registre o provedor VASA com uma instância do vCenter Server</block>
-  <block id="b59d64b98fd315f6b2bb4cfbeef9a7fd" category="paragraph">Você pode Registrar e cancelar o Registro do provedor VASA com uma instância do vCenter Server usando as ferramentas do ONTAP para a interface de plug-in remota do VMware vSphere. A seção Configurações do provedor VASA mostra o estado de Registro do provedor VASA para o vCenter Server selecionado.</block>
   <block id="711a24c1ed1e14106df5e83af675d10f" category="list-text">Selecione *Definições* &gt; *Definições do fornecedor VASA*. O estado de registo do fornecedor VASA é apresentado como não registado.</block>
   <block id="7bd80420c7575554792093f90dbbe6ed" category="list-text">Clique no botão *REGISTAR* para registar o Fornecedor VASA.</block>
   <block id="2a8034ce8dbfe14fabe94e3ca6c7b860" category="list-text">Insira um nome para o provedor VASA e forneça ferramentas ONTAP para credenciais de usuário do aplicativo VMware vSphere e clique em *REGISTRAR*.</block>
@@ -1833,4 +1831,7 @@
   <block id="f66a3c183f0e736240b77f8b755c880e" category="list-text">Disk.QFullThreshold</block>
   <block id="19c08de7404551288e1274186e039ef4" category="list-text">Tempos limite Emulex FC HBA</block>
   <block id="d46cddda4da7ec11f17472d11df95b68" category="list-text">Tempos limite do QLogic FC HBA</block>
+  <block id="a9a74d98e6d11230d876df92acb424fd" category="paragraph">Adicione instâncias do vCenter Server às ferramentas do ONTAP para o VMware vSphere para configurar, gerenciar e proteger seus datastores virtuais no ambiente do vCenter Server. Ao adicionar várias instâncias do vCenter Server, certificados de CA personalizados são necessários para comunicação segura entre as ferramentas ONTAP e cada vCenter Server.</block>
+  <block id="56564ecb20e9cb45429b432b22f216f4" category="admonition">As configurações de MPIO não se aplicam aos protocolos NVMe, NVMe/FC e NVMe/TCP.</block>
+  <block id="07c9ecda15aaf26d8eef3770025ec27c" category="paragraph">Você pode Registrar o provedor VASA com uma instância do vCenter Server usando as ferramentas do ONTAP para VMware vSphere. A seção Configurações do provedor VASA exibe o status de Registro do provedor VASA para o vCenter Server selecionado. Em uma implantação de vários vCenters, certifique-se de ter certificados CA personalizados para cada instância do vCenter Server.</block>
 </blocks>
